@@ -1,0 +1,33 @@
+lista = [12, -2, 4, 8, 29, 45, 78, 36, -17, 2, 12, 8, 3, 3, -52]
+par = []
+contador = 0
+n_negativos = []
+
+maior = max(lista)
+menor = min(lista)
+
+print('Lista completa: {}'.format(lista))
+print('a) Maior numero da lista: {}'.format(maior))
+print('b) Menor numero da lista: {}'.format(menor))
+
+for i in lista:
+    if i % 2 == 0:
+        par.append(i)
+
+print('c) Numeros pares: {}'.format(par))
+
+for x in lista:
+    if x == lista[0]:
+        contador += 1
+
+print('d) Numero de ocorrencias do primeiro numero da lista: {}'.format(contador))
+
+media = sum(lista)/len(lista)
+print('e) Media dos elementos: {}'.format(media))
+
+for y in lista:
+    if y < 0:
+        n_negativos.append(y)
+
+soma_negativos = sum(n_negativos)
+print('f) Soma dos negativos: {}'.format(soma_negativos))
