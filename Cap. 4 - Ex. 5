@@ -1,0 +1,43 @@
+"""
+Faça um programa utilizando dict que leia dados de entrada do usuário. O usuário deve entrar com os dados de uma pessoa como nome, idade e cidade onde mora
+(fique livre para acrescentar outros). Após isso, você deve imprimir os dados como o exemplo abaixo:
+
+nome: João
+idade: 20
+cidade: São Paulo
+
+Utilize o exercício e adicione pessoas em uma lista. Pergunte ao usuário se ele deseja adicionar uma nova pessoa. Após adicionar dados de algumas pessoas, 
+você deve imprimir todos os dados de cada pessoa de forma organizada.
+
+"""
+
+def cadastrar_pessoa():
+    print('_____________________________')
+    print('VAMOS INICIAR O CADASTRO\n')
+    nome = input('Qual é o seu nome: ')
+    idade = input('E a sua idade: ')
+    cidade = input('Onde você mora? ')
+    profissao = input('Qual é a sua profissão? ')
+    cor_favorita = input('E a sua cor favorita: ')
+
+    dados_completos = {'nome': nome, 'idade': idade, 'cidade': cidade, 'profissao': profissao, 'cor': cor_favorita}
+    pessoa = {'nome': nome, 'idade': idade, 'cidade': cidade}
+
+    print('_____________________________')
+    for x,y in pessoa.items():
+        print('{}: {}'.format(x, y))
+
+    return '_______________________________'
+
+def novo_cadastro(x):
+    if x == 'sim':
+        return cadastrar_pessoa()
+    elif x == 'nao':
+        return '\nObrigada por participar!'
+    else:
+        return '\nResposta inválida!'
+
+
+resposta = input('Você deseja cadastrar uma nova pessoa (sim/nao)? ')
+resposta.lower()
+print(novo_cadastro(resposta))
