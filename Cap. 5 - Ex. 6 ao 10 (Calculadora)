@@ -1,3 +1,12 @@
+"""CALCULADORA
+
+Enunciado reduzido:
+Defina as funções soma() e subtracao(), que recebam dois parâmetros e calcule a soma e diferença entre eles. Defina a função calculadora(),
+que recebe dois números como parâmetros e retorna o resultado da soma e subtração entre eles. Modifique a função calculadora() e a faça retornar
+também o resultado da multiplicação e divisão dos parâmetros. Chame a função calculadora() com alguns valores.
+
+"""
+
 def soma(num1, num2):
     return 'Soma: {}'.format(num1 + num2)
 
