@@ -1,0 +1,49 @@
+"""VELOCIDADE MÉDIA 
+
+Enunciado resumido:
+Defina uma função chamada velocidade_media() em um script chamado funcoes.py que recebe dois parâmetros: a distância percorrida (em metros)
+e o tempo (em segundos) gasto. Teste o seu código chamando a função para os valores (distancia = d, tempo = t):
+
+d: 100, t: 20
+d: 150, t: 22
+d: 200, t: 30
+d: 50, t= 3
+
+Motifique a função de modo que retorne o resultado calculado. Defina uma função divisão() que recebe dois números como parâmentros, calcula e
+retorna o resultado da divisão do primeiro pelo segundo. Modifique a função velocidade_media() utilizando a função divisão para calcular a velocidade.
+Teste o seu código chamando a função velocidade_media() com os valores:
+
+d: 100, t: 20
+d: -20, t: 10
+d: 150, t: 0
+
+"""
+
+def velocidade_media(distancia, tempo):
+    return divisao(distancia, tempo)
+
+def divisao(num1, num2):
+    return int(num1 / num2)
+
+def resposta(distancia, tempo, velocidade):
+    return 'Velocidade média de {} para velocidade e {} para tempo: {} m/s'.format(distancia, tempo, velocidade)
+
+vel1 = velocidade_media(100, 20)
+vel2 = velocidade_media(150, 22)
+vel3 = velocidade_media(200, 30)
+vel4 = velocidade_media(50, 3)
+
+print('\nEXERCICIO #4')
+print(resposta(100, 20, vel1))
+print(resposta(150, 22, vel2))
+print(resposta(200, 30, vel3))
+print(resposta(50, 3, vel4))
+
+print('\nEXERCICIO #11')
+vel5 = velocidade_media(100, 20)
+vel6 = velocidade_media(-20, 10)
+#vel7 = velocidade_media(150, 0)
+
+print(resposta(100, 20, vel5))
+print(resposta(-20, 10, vel6))
+#print(resposta(150, 0, vel7))
