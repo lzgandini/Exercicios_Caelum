@@ -1,0 +1,22 @@
+def soma(num1, num2):
+    return 'Soma: {}'.format(num1 + num2)
+
+def subtracoes(num1, num2):
+    return 'Subtração: {}'.format(num1 - num2)
+
+def multiplicacao(num1, num2):
+    return 'Multiplicação: {}'.format(num1 * num2)
+
+def divisao(num1, num2):
+    return 'Divisão: {}'.format(int(num1 / num2))
+
+def calculadora(num1, num2):
+    return soma(num1, num2), subtracoes(num1, num2), multiplicacao(num1, num2), divisao(num1, num2)
+
+calc1 = calculadora(100, 20)
+calc2 = calculadora(150, 22)
+calc3 = calculadora(200, 30)
+
+print('Calculadora com os valores 100 e 20:\n{}'.format(calc1))
+print('Calculadora com os valores 150 e 22:\n{}'.format(calc2))
+print('Calculadora com os valores 200 e 30:\n{}'.format(calc3))
