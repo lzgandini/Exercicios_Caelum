@@ -1,0 +1,23 @@
+print('JOGO DA ADIVINHAÇÃO')
+
+numero_secreto = 42
+total_de_tentativas = 3
+rodada = 1
+
+while rodada <= total_de_tentativas:
+    print('\nTentativa {} de {}'.format(rodada, total_de_tentativas))
+    chute = int(input('Digite seu número:\n'))
+    print('Você digitou ', chute)
+
+    acertou = numero_secreto == chute
+    maior = chute > numero_secreto
+
+    if acertou:
+        print('Você acertou!')
+        break
+    elif maior:
+        print('Você errou! O seu chute foi maior do que o número secreto.')
+    else:
+        print('Você errou! O seu chute foi menor do que o número secreto.')
+
+    rodada += 1
