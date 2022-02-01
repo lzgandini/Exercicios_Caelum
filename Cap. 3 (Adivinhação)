@@ -1,23 +1,37 @@
 print('JOGO DA ADIVINHAÇÃO')
 
 numero_secreto = 42
-total_de_tentativas = 3
-rodada = 1
+pontos = 1000
 
-while rodada <= total_de_tentativas:
+nivel = int(input('\nEm qual nível você quer jogar?\n(1) Fácil\n(2) Médio\n(3) Difícil\nResponda com os números: '))
+if nivel == 1:
+    total_de_tentativas = 20
+elif nivel == 2:
+    total_de_tentativas = 10
+elif nivel == 3:
+    total_de_tentativas = 5
+else:
+    total_de_tentativas = 0
+    print('Número inválido')
+
+
+for rodada in range(1, total_de_tentativas + 1):
     print('\nTentativa {} de {}'.format(rodada, total_de_tentativas))
-    chute = int(input('Digite seu número:\n'))
+    chute = int(input('Digite seu número: '))
     print('Você digitou ', chute)
 
     acertou = numero_secreto == chute
     maior = chute > numero_secreto
+    valor_da_subtracao = abs(chute - numero_secreto)
+    pontos = pontos - valor_da_subtracao
 
     if acertou:
-        print('Você acertou!')
+        print('***Você acertou!')
         break
     elif maior:
-        print('Você errou! O seu chute foi maior do que o número secreto.')
+        print('***Você errou! O seu chute foi maior do que o número secreto.')
+        print('O total de pontos é {}'.format(pontos))
     else:
-        print('Você errou! O seu chute foi menor do que o número secreto.')
-
-    rodada += 1
+        valor_da_subtracao = abs(chute - numero_secreto)
+        print('***Você errou! O seu chute foi menor do que o número secreto.')
+        print('O total de pontos é {}'.format(pontos))
