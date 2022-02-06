@@ -11,9 +11,42 @@ você deve imprimir todos os dados de cada pessoa de forma organizada.
 
 """
 
+"""
+Faça um programa utilizando dict que leia dados de entrada do usuário.
+O usuário deve entrar com os dados de uma pessoa como nome, idade e cidade onde mora
+(fique livre para acrescentar outros). Após isso, você deve imprimir os dados como o exemplo abaixo:
+
+nome: João
+idade: 20
+cidade: São Paulo
+
+Utilize o exercício e adicione pessoas em uma lista. Pergunte ao usuário se ele deseja adicionar uma nova pessoa.
+Após adicionar dados de algumas pessoas, você deve imprimir todos os dados de cada pessoa de forma organizada.
+
+"""
+
+""" PASSOS:
+    1- inserir estrutura para cadastrar pessoa
+    2- armazenar cadastro daquela pessoa em variável
+    3- perguntar se usuário deseja add nova pessoa
+    4- se sim, repetir passo 1 em diante
+    5- se nao, agradecer e exibir o cadastro de todas as pessoas cadastradas
+    6- se for inserido um valor inválido, informar ao usuário e encerrar programa
+    
+    ORDEM NO PROGRAMA PRINCIPAL:
+    1- cadastrar pessoa
+    2- perguntar se usuário deseja add nova pessoa
+    3- repetir quantas vezes usuário desejar
+    4- exibir todos os cadastros e agradecimento
+"""
+
+"""def deseja_cadastrar():
+    resposta = input('Você deseja cadastrar uma nova pessoa (sim/nao)? ')
+    resposta.lower()
+    print(novo_cadastro(resposta))
+"""
+
 def cadastrar_pessoa():
-    print('_____________________________')
-    print('VAMOS INICIAR O CADASTRO\n')
     nome = input('Qual é o seu nome: ')
     idade = input('E a sua idade: ')
     cidade = input('Onde você mora? ')
@@ -23,21 +56,34 @@ def cadastrar_pessoa():
     dados_completos = {'nome': nome, 'idade': idade, 'cidade': cidade, 'profissao': profissao, 'cor': cor_favorita}
     pessoa = {'nome': nome, 'idade': idade, 'cidade': cidade}
 
+    print('_______________________________')
+    resposta = input('Você deseja cadastrar uma nova pessoa (sim/nao)? ')
+    return resposta.lower()
+
+def exibir_cadastro():
     print('_____________________________')
     for x,y in pessoa.items():
         print('{}: {}'.format(x, y))
 
-    return '_______________________________'
+    return '\nObrigada por participar!'
 
-def novo_cadastro(x):
+def para_novo_cadastro(x):
+    valor_invalido = print('\nResposta inválida!')
+
+"""enquanto a resposta for sim, salvar dados do usuário como pessoa[numero].
+    na impressão, imprimir todos os usuários cadastrados"""
+
     if x == 'sim':
         return cadastrar_pessoa()
     elif x == 'nao':
-        return '\nObrigada por participar!'
+        return exibir_cadastro()
     else:
-        return '\nResposta inválida!'
+        return valor_invalido
 
 
-resposta = input('Você deseja cadastrar uma nova pessoa (sim/nao)? ')
-resposta.lower()
-print(novo_cadastro(resposta))
+
+print('VAMOS INICIAR O CADASTRO')
+cadastrar_pessoa()
+se_quer_cadastrar = cadastrar_pessoa()
+para_novo_cadastro(se_quer_cadastrar)
+exibir_cadastro()
