@@ -6,9 +6,9 @@ class Historico:
         self.transacoes = []
 
     def imprime(self):
-        print('Data de abertura da conta: {}'.format(self.data_abertura))
+        print('\nData de abertura da conta: {}'.format(self.data_abertura))
         print('Transações: ')
-        for t in seld.transacoes:
+        for t in self.transacoes:
             print('-', t)
 
 class Cliente:
@@ -28,33 +28,29 @@ class Conta:
 
     def deposita(self, valor):
         self.saldo += valor
+        self.historico.transacoes.append('Deposito de R$ {}'.format(valor))
 
     def saca(self, valor):
         if (self.saldo < valor):
-            return False
+            return 'Saldo insuficiente'  #NÃO ESTÁ FUNCIONANDO ESTE RETORNO
         else:
             self.saldo -= valor
-            return True
+            self.historico.transacoes.append('Saque de R$ {}'.format(valor))
 
     def transfere_para(self, destino, valor):
         if valor <= self.saldo:
             self.saca(valor)
             destino.deposita(valor)
-            print('Transferência efetuada com sucesso!\n')
-
-            resposta = input('Deseja ver o seu saldo atual (sim/nao)? ')
-            if resposta == 'sim':
-                return self.extrato()
-            elif resposta == 'nao':
-                return 'Até mais!'
-            else:
-                return 'Resposta inválida'
-
+            self.historico.transacoes.append(
+                'Transferência de R$ {} para a conta {}'.format(valor, destino.numero))
         else:
-            return 'Saldo insuficiente'
+            return 'Saldo insuficiente'  #NÃO ESTÁ FUNCIONANDO ESTE RETORNO
 
     def extrato(self):
-        return 'Numero da conta: {}\nSaldo: R$ {}'.format(self.numero, self.saldo)
-        #print('\nDADOS DO CLIENTE') #deve chamar outra classe
-        #print('Nome completo: {}'.format(Cliente.nome_completo))
-        #print('CPF: {}'.format(Cliente.cpf))
+        print('\nNumero da conta: {}\nSaldo: R$ {}'.format(self.numero, self.saldo))
+        self.historico.transacoes.append('Tirou extrato. Saldo de R$ {}'.format(self.saldo))
+
+        print('\nDados do Cliente:') #deve chamar outra classe
+        print('Nome completo: {}'.format(self.cliente))
+        #print('CPF: {}'.format(Cliente.cpf)) #NAO ESTÁ FUNCIONANDO
+        
